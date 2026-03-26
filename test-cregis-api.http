@@ -1,0 +1,46 @@
+### Test Cregis API Integration
+### You can use this file with REST Client extension in VS Code or similar tools
+
+@baseUrl = http://localhost:8000/api
+
+### 1. Get Supported Coins
+GET {{baseUrl}}/cregis/coins
+Content-Type: application/json
+
+###
+
+### 2. Create Payout
+POST {{baseUrl}}/cregis/payout
+Content-Type: application/json
+
+{
+  "currency": "195@195",
+  "address": "TXsmKpEuW7qWnXzJLGP9eDLvWPR2GRn1FS",
+  "amount": "10.5",
+  "third_party_id": "test_payout_001",
+  "callback_url": "http://localhost:8000/api/cregis/callback",
+  "remark": "Test withdrawal"
+}
+
+###
+
+### 3. Query Payout Status
+GET {{baseUrl}}/cregis/payout/test_payout_001
+Content-Type: application/json
+
+###
+
+### 4. Test Webhook (simulate Cregis callback)
+POST {{baseUrl}}/cregis/callback
+Content-Type: application/json
+
+{
+  "pid": 1382528827416576,
+  "third_party_id": "test_payout_001",
+  "status": "success",
+  "amount": "10.5",
+  "currency": "195@195",
+  "timestamp": 1687848653294
+}
+
+###
