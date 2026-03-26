@@ -64,3 +64,16 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+### Local Setup Guide for this example
+1. duplcate the env.example to .env
+2. edit the last 3 env variables (You will have your own wallet id, key and the url once you created your wallet in cregis)
+3. make sure you are using php version 8.3
+4. remain these 2 libraries versions
+  ["laravel/framework": "^10.10",
+   "vlucas/phpdotenv": "5.5.0"]
+5. to install all dependencies, run
+   composer install
+6. to start the server, run 
+   php artisan serve
